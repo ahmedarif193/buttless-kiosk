@@ -63,7 +63,7 @@ ApplicationWindow {
             console.log("the ret from onFinishedGatheringDataForItem is  " + signalString + ", with value : "+ signalInt)
             page2.busyIndicator.visible = false
             swipeView.currentIndex += 1;
-            page3.resultImage.source = "image://QZXing/encode/" + signalString
+            page3.resultImage.source = "image://QZXing/encode/" + signalString + "&border=true"
             page3.resultImage.cache = false;
             page3.resultImage.cache = true;
         }

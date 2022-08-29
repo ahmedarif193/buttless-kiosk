@@ -16,22 +16,10 @@ class looper: public QObject
 {
     Q_OBJECT
     QNetworkAccessManager * manager;
+    QNetworkReply *reply;
 private slots:
-    void replyFinished(QNetworkReply *r){
-        QByteArray bytes = r->readAll(); // bytes
-        qDebug()<<"reply received---------------"<<bytes.length();
-        qDebug()<<bytes;
-        QJsonDocument jsonResponse = QJsonDocument::fromJson(bytes);
-        QJsonObject jsonObject = jsonResponse.object();
-        auto uuid = jsonObject["uuid"].toString();
-        auto uuid_count = jsonObject["count"].toInt();
-
-        qDebug()<<uuid;
-        qDebug()<<uuid_count;
-
-        emit finishedGatheringDataForItem(uuid, uuid_count);
-    };
-public:
+    void replyFinished(QNetworkReply *reply);
+ public:
     looper(QObject* parent = 0) : QObject(parent) {
         manager = new QNetworkAccessManager(this);
         connect(manager, &QNetworkAccessManager::finished, this, &looper::replyFinished);
