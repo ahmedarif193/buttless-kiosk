@@ -66,11 +66,9 @@ Page {
 
         x: 613
         y: 38
-        width: 279
-        height: 251
-        sourceSize.width: 177
-        sourceSize.height: 177
-
-        cache: true;
+        width: 240
+        height: 240
+        sourceSize.width: 240
+        sourceSize.height: 240
     }
 }

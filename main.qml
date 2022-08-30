@@ -60,10 +60,10 @@ ApplicationWindow {
     Connections {
         target: looper
         function onFinishedGatheringDataForItem(signalString, signalInt) {
-            console.log("the ret from onFinishedGatheringDataForItem is  " + signalString + ", with value : "+ signalInt)
+            var advancedUrl = "image://QZXing/encode/"+signalString+"?correctionLevel=L&format=qrcode&border=true&transparent=false&explicitSize=auto"
             page2.busyIndicator.visible = false
             swipeView.currentIndex += 1;
-            page3.resultImage.source = "image://QZXing/encode/" + signalString + "&border=true"
+            page3.resultImage.source = advancedUrl
             page3.resultImage.cache = false;
             page3.resultImage.cache = true;
         }
