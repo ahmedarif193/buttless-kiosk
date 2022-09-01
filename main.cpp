@@ -15,7 +15,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QZXing::registerQMLImageProvider(engine);
     looper m_looper;
 
-
     engine.rootContext()->setContextProperty("looper", &m_looper);
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
 
